@@ -6,10 +6,6 @@ const nextConfig = {
   // Configuración de Seguridad
   poweredByHeader: false,
   compress: true,
-  // Configuración para Vercel - deshabilitar prerendering estático
-  experimental: {
-    esmExternals: false,
-  },
 }
 
 module.exports = nextConfig
