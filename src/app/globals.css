@@ -1,0 +1,113 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Importar estilos personalizados de Intro.js */
+@import '../styles/intro-tour.css';
+
+/* Importar estilos de Intro.js */
+@import 'intro.js/minified/introjs.min.css';
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+    --primary: 173 58% 39%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 173 30% 70%;
+    --secondary-foreground: 222.2 84% 4.9%;
+    --muted: 210 40% 96%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --accent: 173 45% 60%;
+    --accent-foreground: 222.2 84% 4.9%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 173 58% 39%;
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 173 58% 39%;
+    --primary-foreground: 222.2 84% 4.9%;
+    --secondary: 173 30% 70%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+    --accent: 173 45% 60%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 173 58% 39%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Estilos personalizados para la aplicación de clima */
+.weather-gradient {
+  background: linear-gradient(135deg, #26a69a 0%, #4db6ac 50%, #80cbc4 100%);
+}
+
+.weather-card {
+  @apply bg-card rounded-lg shadow-lg border border-border/50 backdrop-blur-sm;
+}
+
+.weather-animation {
+  animation: weatherFloat 3s ease-in-out infinite;
+}
+
+@keyframes weatherFloat {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-5px); }
+}
+
+.skeleton {
+  @apply animate-pulse bg-muted rounded;
+}
+
+/* Estilos para el mapa */
+.leaflet-container {
+  /* Crear un nuevo contexto de apilamiento para evitar que el mapa
+     se superponga sobre otros componentes al hacer scroll */
+  position: relative;
+  z-index: 0;
+  @apply rounded-lg;
+}
+
+/* Asegurar que todos los panes del mapa respeten el z-index del contenedor */
+.leaflet-pane,
+.leaflet-top,
+.leaflet-bottom {
+  z-index: 0;
+}
+
+/* Estilos para gráficos */
+.recharts-wrapper {
+  @apply rounded-lg;
+}
+
+/* Transiciones suaves */
+.transition-weather {
+  @apply transition-all duration-300 ease-in-out;
+}
